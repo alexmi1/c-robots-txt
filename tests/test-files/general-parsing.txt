@@ -35,3 +35,25 @@ Disallow: /testing-wildcards*/hi
 Sitemap: https://www.example.com/sitemap.xml
 Sitemap:     https://www.example.com/some_subdir/sitemap.xml##############
 Sitemap: https://www.example.com/asdf/sitemaps_are_cool/sitemap.xml
+
+# test empty rules
+Allow:
+Disallow:
+Allow: 
+Disallow:      
+Allow:
+Disallow:
+
+# test empty sitemap directives
+Sitemap:
+Sitemap: 
+Sitemap:                   
+Sitemap:                                
+Sitemap:#####  
+
+# test empty user agent directives
+User-agent: 
+User-agent:       
+User-agent:                              
+User-agent:## # ##  ##
+User-agent:

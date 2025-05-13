@@ -241,6 +241,7 @@ TESTABLE RuleMatchResult match_one_rule(const char* path, const char* rule) {
 
 // NOTE: "path" may or may not be null-terminated here, and "path_length" should NOT include the null terminator
 static RobotsTxt_Error rules_append(RobotsTxt_PathRules* rules, RobotsTxt_RuleType rule_type, const char* path, size_t path_length) {
+    if (path_length <= 0) { return ROBOTS_TXT_OK; } // empty path, do nothing
     char* copied_path = C_ROBOTS_TXT_MALLOC(sizeof(char) * (path_length + 1));
     if (copied_path == NULL) { return ROBOTS_TXT_OUT_OF_MEMORY; }
     memcpy(copied_path, path, path_length);
@@ -299,6 +300,7 @@ static void rules_discard(RobotsTxt_PathRules* rules) {
 }
 
 static RobotsTxt_Error sitemap_urls_append(RobotsTxt_SitemapUrls* urls, const char* url, size_t url_length) {
+    if (url_length <= 0) { return ROBOTS_TXT_OK; } // empty url, do nothing
     char* copied_url = C_ROBOTS_TXT_MALLOC(sizeof(char) * (url_length + 1));
     if (copied_url == NULL) { return ROBOTS_TXT_OUT_OF_MEMORY; }
     memcpy(copied_url, url, url_length);
