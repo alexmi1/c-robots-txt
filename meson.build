@@ -78,3 +78,13 @@ if build_tests == true
   test('nul-characters', nul_characters)
 endif
 
+# by the way, make sure buildtype is set to release when running benchmarks
+bench_c_args = []
+bench_link_args = []
+benchmark_general_parsing = executable('bench-general-parsing', 'benchmarks/bench_general_parsing.c',
+  dependencies: [c_robots_txt_dep],
+  c_args: bench_c_args,
+  link_args: bench_c_args
+)
+benchmark('bench-general-parsing', benchmark_general_parsing)
+
