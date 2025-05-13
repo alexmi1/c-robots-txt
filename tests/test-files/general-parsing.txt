@@ -1,0 +1,37 @@
+User-agent: *
+Disallow: /search
+Disallow: /disallow_for_generic_agent
+Allow: /search/subdir
+Allow: /search/another_subdir
+
+User-agent: OurCrawler
+Allow: /search # line comments, yay
+Allow: /exact
+Disallow: /exact$
+
+User-agent: OurCrawler
+Allow: /MATCH_AND_ALLOW
+
+User-agent: horse
+User-agent: aposiddfoguf
+Disallow: /NO_MATCH_AND_ALLOW
+Sitemap: https://www.example.com/first_sitemap.xml
+
+User-agent: some-bot
+User-agent: OurCrawler
+User-agent: another-bot
+Disallow: /GROUP_MATCH_AND_DISALLOW
+
+User-agent: oifjhwperiufh
+Allow: /img
+Allow: /fluff
+
+User-agent: OurCrawler
+Disallow: /hello/
+Disallow: /number1
+
+Disallow: /testing-wildcards*/hi
+
+Sitemap: https://www.example.com/sitemap.xml
+Sitemap:     https://www.example.com/some_subdir/sitemap.xml##############
+Sitemap: https://www.example.com/asdf/sitemaps_are_cool/sitemap.xml

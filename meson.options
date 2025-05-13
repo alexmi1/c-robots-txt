@@ -1,0 +1,3 @@
+option('build_fuzz', type : 'boolean', value : false)
+option('fuzzing_time', type : 'integer', value : 25)
+option('build_tests', type : 'boolean', value : false)
